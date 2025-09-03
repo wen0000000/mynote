@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>python test筆記</title>
+	<style type="text/css">
+	.head{
+		background-color:#aaaaaa;font-size:30px;font-weight:bold;color:#ffffff;
+	}
+	.title{
+		font-size:27px;font-weight:bold;color:#F5D627;
+	}
+	.title2{
+		font-size:23px;font-weight:bold;color:#3A8FF0;
+	}
+	.goal{
+		font-size:20px;color:#8c0044;
+	}
+	.step{
+		font-size:18px;
+	}
+	.plan{
+		color:#008844;
+		margin:10px;
+	}
+	.output{
+		color:white;
+		background-color:black;
+		margin:10px;
+	}
+	.feature{
+		color:#F59F27;
+		font-size:16px;
+	}
+	img{
+		width:700px;
+	}
+	table{
+		width:700px;
+	}
+	td{
+		padding:10px;
+	}
+	.wrap{
+		margin:auto;
+		 width:700px;
+		 display: block;
+	}
+	
+
+	</style>
+</head>
+<body style="margin:0px;">
+	<div class="head">python自動化測試筆記</div>
+	<div class="title">Foundation</div>
+	<div class="title2">自建 function</div>
+	<div class="goal">應用 Function，可提高運算程式的重用性，可輸入不同的資料，執行相同的 Function 而得到不一樣的結果。</div>
+	<div class="step">如下：</br>
+		function 可帶入參數 parameter (如下例的 x, y)，視為 Input， return 的值為 output。
+	</div>
+	<span style="font-size:15px; color:red;">*不一定要有 return，會視乎 function 是否需要回傳 Output。</span>
+	<div class="plan">
+		def num_sum(x, y)</br>
+		&nbsp return x + y</br>
+
+		# 會先執行 num_sum() 取得 output，再執行 print() 使結果印在 Console</br>
+		print(num_sum(1, 1))</br>
+		print(num_sum(2, 3))</br>
+	</div>
+	<hr>
+	<div class="title">流程控制</div>
+	<div class="title2"> Decision Structure</div>
+	<ul>
+		<li>If…elif…else</li>
+		<li>Match…case…</li>
+	</ul>
+	<div class="step">Match…case…範例</div>
+	<div>def switch_case(value):</br>
+			&nbsp    match value:</br>
+			&nbsp &nbsp 	case 1:</br>
+			&nbsp &nbsp &nbsp 	print("Case 1")</br>
+			&nbsp&nbsp  	case 2:</br>
+			&nbsp &nbsp &nbsp 	print("Case 2")</br>
+			&nbsp &nbsp 	case _:</br>
+			&nbsp &nbsp &nbsp 		# 在未匹配到任何 case 時執行的程式碼</br>
+			&nbsp &nbsp &nbsp 		print("Default Case")</br></br>
+
+		# 測試</br>
+		switch_case(2)</br>
+		switch_case(4)
+	</div>
+	<div class="title2"> Looping Structure</div>
+	<ul>
+		<li>For loop</li>
+		<li>While Loop</li>
+	</ul>
+	<div class="step">for寫法</div>
+	<ul>
+		<li>for i in range(stop):</li>
+		<li>for i in range(start, stop):</li>
+		<li>for i in range(start, stop, step)):</li>
+	</ul>
+	<span style="font-size:15px; color:red;">*string和list&dict的keys可以被迭代</span>
+	<br>
+	<div class="step">while寫法</div>
+	<div>while condiction:</div>
+	<span style="font-size:15px; color:red;">*For loop 一般應用在已知迴圈次數的情況，While Loop 是在不知道迴圈的次數，但可以條件判斷什麼時候結束</span>
+	<br>
+	<span style="font-size:15px; color:red;">*應用 While Loop 的時候更需要注意會否出現 無窮迴圈 的情況</span>
+	<br>
+	<div class="title2"> Break & Continues </div>
+	<ul>
+		<li>Break 強制離開迴圈</li>
+		<li>使用 Continues 以結束這次的迴圈，跳到下一個。</li>
+	</ul>
+	<div class="step">Continues範例</div>
+	<div class="plan">for i in range(1, 6):</br>
+    if i == 3:</br>
+	&nbsp # 如 i = 3 的時候，會執行以下程式continue</br>
+	&nbsp # 會結束當下這次的執行，迭代到下一個 i(即為 4)，continue 後面的程式碼不會執行</br>
+    print(i)
+	</div>
+	<div class="output">1</br>2</br>4</br>5</br>6</br></div>
+	<div class="title2"> 例外處理 Except (Try … Except …)</div>
+	<div class="goal">執行程式的過程，發生一些非預期的結果，系統會跳出例外 (Throw Exception)，會直接終止，不再執行後面的程式碼。
+	<br>
+	如果不想程序終止，使用 Try Except 可以抓住例外，作處理後會繼續執行後續的程式碼。
+	</div>
+	<div class="step"> Try Except寫法</div>
+	<div>
+		try:</br>
+		# Try Statement 有可能出現錯誤的程式碼</br>
+
+		except [exceptionType [as variable]]:</br>
+		# Except Statement 拋出例外時需要執行的程式碼</br>
+
+		else:</br>
+		# Else Statement 沒有出現錯誤才會執行的程式碼 (Optional)  </br>
+
+		finally:</br>
+		# Finally Statement 不管有沒有出錯都會執行的程式碼 (Optional) </br>
+	</div>
+	<br>
+	<div class="goal">
+		除了系統遇到錯誤會自動引發例外，也可以自行強制引發指定的例，可使用 raise <Error>。</br>
+		(希望在某個條件達到時，就拉起警報不要讓程式繼續進行下去)
+	</div>
+	<div class="step"> raise範例</div>
+	<div>
+		divider = 0</br>
+		if divider == 0:</br>
+		&nbsp	raise ZeroDivisionError
+	</div>
+	<div class="step"> assert寫法</div>
+	<div>assert False, “中斷原因”</div>
+	<div class="title"> list, tuple, set 和 dict</div>
+	<div class="title2">list[]</div>
+	<div class="feature">資料的型別可以不同，有順序性，內容可被改變。</br>
+		相對是最常用的容器型別，並非不可變的資料 / 需要作集合的運算時，都會使用 list 儲存多個資料。
+	</div>
+	<div class="step">list 是有 迭代性 (iterable)，可以通過 for loop 來取得當中的值，寫法可以有 3 種：</div>
+	<div>
+		num_list = [2, 4, 6, 8]</br>
+
+		for num in num_list:</br>
+		&nbsp	print(num)
+	</div>
+	<hr>
+	<div>
+		for index in range(len(num_list))</br>
+
+		# index 分別會是 0, 1, 2, 3</br>
+		&nbsp print(num_list[index])
+	</div>
+	<hr>
+	<div>
+		# enumerate() 是內建函數，可同時取得 list 的 index 和值。
+		# 當需要同時取得 list 的 index 和值的時候很有用。
+		for index, num in enumerate(num_list):</br>
+			&nbsp print(index)</br>
+			&nbsp print(num)
+	</div>
+	<hr>
+	<div class="title2">tuple()</div>
+	<div class="feature">資料的型別可以不同，亦有順序性，但內容定義後則不能改變。</br>
+		應用跟 list 相似，只能儲存一些不會被變更的資料，但執行的效比 List 好。
+	</div>
+	<div class="title2">set{}</div>
+	<div class="feature">資料的型別可不同，內容可改變，但沒有順序，還有一個特點是內容不可重複。概念跟數學的集合相似。</br>
+		一般應用在應用集合的運算，如交集，聯集，差集等數學運算，這類型的運算執行效率比 list 好。還有一種用法是用來刪除重複的元素。
+	</div>
+	<div>
+		由於沒有順序性，不能用 index 取值。</br>
+		但有迭代性，可用 for loop 取得每個元素。由於 set 是沒有順序，所以取得值的順序跟添加的順序可能不一樣。</br>
+	</div>
+	<div class="title2">dict{"key":"value"}</div>
+	<div class="feature">作 API 測試，將會透過 API 取得回傳的資料，會是以 dict 的格式存儲，因此將會應用 dict 作大量的操作。</div>
+	<div>沒有順序性，無法用 index 取值，需要以 key 取值。</div>
+	<div>
+		# dict 的內建 function keys()，可以取得 dict 的所有 key list</br>
+		# 再透過 for loop 讀取每個 key</br>
+		for key in person_a.keys():</br>
+			&nbsp print(f"{key}: {person_a[key]}")
+	</div>
+	<div class="title"> 演算法</div>
+	<div>好的演算法 通常具有以下特點：</div>
+	<ul>
+		<li>正確性：確實地解決問題，並產生正確的結果。</li>
+		<li>效率：在合理的時間內完成，避免不必要的資源浪費。</li>
+		<li>清晰性：步驟應該清晰易懂，方便理解和實現。</li>
+		<li>通用性：能夠應用於不同的情況，而不僅僅限於特定案例。</li>
+	</ul>
+	<div class="step">Linear Search </div>
+	<div>
+		def linear_search(numbers, target):</br></br>
+
+			&nbsp for i, num in enumerate(numbers):</br>
+			&nbsp # 若找到目標的數值則回傳數值的 index</br>
+			&nbsp&nbsp	if num == target:</br>
+			&nbsp&nbsp	return i</br></br>
+
+		&nbsp	# 找不到資料則回 -1</br>
+		&nbsp	return -1</br>
+
+		print(linear_search([1, 2, 5, 6, 7], 1)) # should print 0 </br>
+		print(linear_search([1, 2, 5, 6, 7], 6)) # should print 3</br>
+	</div>
+	<br>
+	<div class="step">Binary Search </div>
+	<div>
+		def binary_search_position(numbers, target):  </br>
+		&nbsp	left = 0 </br>
+		&nbsp	right = len(numbers) - 1  </br>
+		&nbsp	while left <= right:</br>
+		&nbsp&nbsp		mid = (left + right) // 2 </br>   
+		&nbsp&nbsp		if numbers[mid] > target: </br>
+		&nbsp&nbsp&nbsp			right = mid - 1 </br>
+		&nbsp&nbsp		elif numbers[mid] < target: </br>
+		&nbsp&nbsp&nbsp			left = mid + 1 </br>
+		&nbsp&nbsp		else: </br>
+		&nbsp&nbsp&nbsp			return mid    </br>           
+        
+		&nbsp	return -1 </br> </br>
+
+		print(binary_search_position([1, 2, 5, 6, 7], 1)) # should print 0 </br> 
+		print(binary_search_position([1, 2, 5, 6, 7], 6)) # should print 3
+	</div>
+	<br>
+	<div class="title"> Big O Notation</div>
+	<div>
+		<img src="D:\pratice\mywebsite\img\bigO.jpg"></img>
+		<br>
+		圖片來源：
+		<a href="https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/"> https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/</a>
+	</div>
+	<div>
+		Linear Search的Time Complexity 為O(n)， Binary Search的 Time Complexity 為 O(log n)</br>
+		根據 Big O Complexity Chart，很清楚知道 Binary Search 的效能比 Linear Search 好。
+	</div>
+	<span style="font-size:15px; color:red;">*不過 Binary Search 的應用有限制，需要是已排序的才能應用，而 Linear Search 則沒有這限制。</span>
+	<div class="title">Module 和 Package</div>
+	<div class="title2">Module</div>
+	<div class="goal">隨著專案的長大，將會出現多個 Python 檔案，而這些 Python 檔都需要共用一些 Function 的時候，我們會把共用的 Function 抽出寫成一個 Module，使可以被匯入到其他程式所應用。</div>
+	<br>
+	<div class="title2">Package</div>
+	<div class="goal"> 包含了多個 Module，作用是把 Module 分類存放，可以整個被匯入其他程式被應用。而這個資料夾必須含有 __init__.py 才會被視為 Package。</div>
+	<div>__init__.py 可以是空的檔案。這個檔案的程式碼會被 Import 時執行，所以可以加入 Import 時想要執行的內容，例如導入依賴套件。</div>
+	<img src="D:\pratice\mywebsite\img\螢幕擷取畫面 2025-08-21 093052.jpg"></img>
+	<br>
+	<img src="D:\pratice\mywebsite\img\螢幕擷取畫面 2025-08-21 093131.jpg"></img>
+	<br>
+	<div class="title2">第三方套件</div>
+	<div>比較常用的會是透過 pip安裝，安裝 Python 時就會自動包含 pip 了，在程式中應用時，只需要 import 即可使用。</div>
+	<div>import &lt package &gt</div>
+	<div class="step"> Automation Test 常用的第三方套件：</div>
+	<table border="1">
+		<tr>
+			<td>pandas</td>
+			<td>主要作資料的處理和分析，讀寫 Excel 等</td>
+		</tr>
+		<tr>
+			<td>faker</td>
+			<td>用來製作假資料，如 Email, Username, Password 等等，對測試非常實用</td>
+		</tr>
+		<tr>
+			<td>pillow</td>
+			<td>圖形處理，可用來比對圖片</td>
+		</tr>
+		<tr>
+			<td>requests</td>
+			<td>HTTP 請求套件，用於發送 HTTP 請求和處理 HTTP 響應。它簡化了進行網絡通信的過程，讓你能夠更輕鬆地進行 HTTP GET、POST 和其他各種類型的請求</td>
+		</tr>
+		<tr>
+			<td>pymysql</td>
+			<td>處理 MySQL Database 的操作</td>
+		</tr>
+		<tr>
+			<td>sqlalchemy</td>
+			<td>處理 SQL Database 的操作</td>
+		</tr>
+	</table>
+	<span style="font-size:15px; color:red;">*Python 檔案的命名，避免跟套件的名字相同，將會取代套件被應用。</span>
+	<br>
+	<div class="title2">虛擬環境</div>
+	<div>同一台電腦上可創建多個獨立的 Python 環境，每個環境都可以具有不同的 Python 版本和 Package，而不會互相干擾。</div>
+	<br>
+	<div>創建和管理虛擬環境一般都會使用 Python 內置的 venv 套件或者第三方套件／工具，如virtualenv、conda、Poetry 。</br>
+		PyCharm 建立新專案時就可以選用需要的虛擬環境。
+	</div>
+	<br>
+	<div>
+		python -m venv &lt env_name &gt &nbsp         # 建立虛擬環境，名為 &lt env_name&gt</br>
+		source &lt env_name&gt/bin/activate &nbsp    # 啟用虛擬環境 &lt env_name&gt</br>
+		deactivate        &nbsp                 # 停用虛擬環境</br>
+	</div>
+	
+	<div class="title"> Python 對 Excel 的應用</div>
+	<div class="title2"> Openpyxl 和 Pandas 套件</div>
+	<div>
+		openpyxl 是一個用於操作 Microsoft Excel 文件（以 .xlsx 格式保存的 Excel 文件）的Python套件。可以讀取、編輯和創建Excel文件，</br>
+		使你能夠自動化處理和生成 Excel 數據。
+	</div>
+	<br>
+	<div class="step">Pandas 的 3 種資料結構：</div>
+	<ol>
+		<li>Series 處理一維資料 (1-d Array)</li>
+		<li>DataFrame 處理二維資料 (2-d Array)</li>
+		<li>Panel 處理多維資料 (n-d Array)</li>
+	</ol>
+	<div> 
+		Pandas 套件用來作數據處理，蠻常用作處理 Excel 和 SQL 資料表這種二維資料。</br>
+		一般處理 Excel 和 Database 的資料，幾乎都是二維資料，因此應用 DataFrame 比較多。
+	</div>
+	<div class="step"> DataFrame</div>
+	<ul>
+		<li>由 列 (Row) 和 行 (Column) 組成</li>
+		<li>每一列可以包含不同類型的數據，但每一行的數據類型必須是相同的。</li>
+	</ul>
+	<div class="title2"> 建立 DataFrame 的方法：</div>
+	<ol>
+		<li>由 dict 所組成的 list 建立 DataFrame:</br>
+			每個 List Item 都是 dict ，作為一個 列 (Row) 的資料。</br>
+			dict 中的 key 作為 Column 的名稱，而 value 即為 Column 的值。</br>
+			每個 List Item 的 dict 資料需要對齊，若 dict 中缺少的 key，該對應的值會自動補為 nan。</li>
+		<li>由 list 所組成的 dict 建立 DataFrame</br>
+			同樣 key 為 Column 的名稱，對應的 list 為每一列的值。</br></br>
+			注意： 每個 key 的 list 數量必須一致，否則會出現錯誤。 因此若該欄位沒有資料時，需自行補上 nan 的值，可以填入 None 來生成 nan 值。</li>
+	</ol>
+	<div class="wrap">
+		<img src="D:\pratice\mywebsite\img\1.jpg"></img></br>
+		<img src="D:\pratice\mywebsite\img\2.jpg"></img></br>
+		<img src="D:\pratice\mywebsite\img\3.jpg"></img></br>
+		<img src="D:\pratice\mywebsite\img\4.jpg"></img></br>
+	</div>
+	<br>
+	<div class="goal">透過 Pandas 可以應用 DataFrame 生成 Excel File</div>
+	<div>score_df.to_excel("score_table.xlsx")</div>
+	<div class="goal">存取及應用 Excel 資料</div>
+	<div>
+		import pandas as pd</br>
+		df = pd.read_excel('score_table.xlsx')</br></br>
+		
+		# 讀取每一行的 index 和 row 資料</br>
+		for index, row in score_df.iterrows():</br>
+		score = row["Reading"] * 0.2 + row['Listening'] * 0.25 \</br>
+        &nbsp     + row['Speaking'] * 0.3 + row['Writing'] * 0.25</br></br>
+
+		print(f"{index}: {score}")</br>
+	</div>
+	<span style="font-size:15px; color:red;">*要注意 可讀性，盡量避免應用 index 去讀取資料。</span>
+	<div class="goal">Nan 的處理</div>
+	<div>
+		# 把 DataFrame 內所有 nan 值換成數值 0，並生成一個新的 DataFrame</br>
+		new_df = df.fillna(0)</br>
+		print(new_df)</br></br>
+
+		# 把 DataFrame 內所有 nan 值換成字串 N/A</br>
+		# 應用 inplace=True 是直接更換原有的 DataFrame，不會生成新的</br>
+		df.fillna("N/A", inplace=True)</br>
+		print(df)</br>
+	</div>
+	<div class="title">Python 的 Class 和 Object</div>
+	<div>Class (類別) 就像是設計藍圖，而 Object (物件) 則是透過設計藍圖 Class 來生成的實體。</div>
+	<div>Attribute (屬性)用來定義 Object 的屬性資料，可以理解成屬於 Object 的變數。</div>
+	<div class="title2">Class Attribute (類別屬性)</div>
+	<div>在 Class 定義，生成的 Object 都會帶有這屬性，想要被 Object 共用的屬性會寫在這。</div>
+	<div class="title2">Instance Attribute (實例屬性)</div>
+	<div>
+		在生成 Object 時透過 建構子 (Constructor) 帶入參數建立 Instance attribute。</br>
+		建構子會用 def __init__(self) 來定義，是 object 初始化的意思，定義 object 生成時會有什麼 attribute。
+	</div>
+	<div>Methods (方法)：寫在 class 內的 function 被稱為 method</div>
+	<div class="title2">Instance Method</div>
+	<div>會帶有 self 的參數，代表 object 自身，可應用 self 來取得 instance attribute 或 instance method。*只可被 object 使用</div>
+	<div class="title2">Class Methods</div>
+	<div>需要使用 @classmethod 作標記</br>
+		帶有 cls 參數，代表 class 自身，可應用來取得 class attribute 或其他 class method。</br>
+		*object 可以使用，但無須生成 object 也能直接使用</div>
+	<div class="title2">Static Method</div>
+	<div>需要用 @staticmethod 作標記</br>
+		不帶 self 或 cls 參數，這種 Method 都不需要用到 attribute。</br>
+		*class 和 object 都可以直接使用
+	</div>
+	<div class="title">物件導向編程 OOP 的基本概念</div>
+	<div class="title2">OOP 程式設計的好處</div>
+	<ul>
+		<li>提高可讀性</li>
+		<li>封裝的 Method，可被大量重複使用，只需一次的撰寫或偵錯，提高可重用性，以及可維護性</li>
+		<li>同時亦可具備差異性，讓程式碼易於擴展</li>
+	</ul>
+	<div> Automation Test 中 Page Object Model (POM) 就是應用 OOP 設計出來的。應用 OOP 設計再搭配 Module 和 Package 的概念，會對專案架構設計產生很大的幫助。</div>
+	<div class="title2">Object Orientation Programming (OOP)</div>
+	<div class="goal">封裝 Encapsulation</div>
+	<div class="step">處理多位學生的個人資料以及上課記錄等資料，而每位學生都有獨立的資料需要處理，因此把 學生的資料 和 處理資料的 method 封裝成一個 Class </div>
+	<div>
+		class Student:</br>
+		 &nbsp 	student_id = ""</br>
+		 &nbsp 	student_name = ""</br>
+		 &nbsp 	sex = ""</br>
+		 &nbsp 	attendance = 0</br></br>
+
+		 &nbsp 	def attend_lesson(self)</br>
+		 &nbsp  &nbsp 		self.attendance += 1</br>
+	</div>
+	<div class="goal">繼承 Inheritance</div>
+	<div>
+		從既有的 Class (父類別 Parent Class) 定義出新的 子類別 (Child Class)，子類別可以繼承父類別的屬性和方法，</br>
+		亦可以加入自己的屬性和方法，甚至重新定義從父類別繼承的方法，但不影響父類別的方法。
+	</div>
+	<div class="plan">
+		class Pet:</br>
+		# 每隻寵物，不管什麼類型，都有名字，因此初始化的動作在父類別進行</br>
+		&nbsp	def __init__(self, name):</br>
+		&nbsp		self.name = name</br></br>
+
+		&nbsp	# 每隻寵物，不管什麼類型，都會吃東西</br>
+		&nbsp	def eat(self):</br>
+		&nbsp&nbsp		print(f"{self.name} can eat")</br></br>
+
+		# 定義寵物種類為狗</br>
+		class Dog(Pet):</br></br>
+
+		&nbsp	# 狗類寵物有抓貓技能</br>
+		&nbsp	def catch_cat(self):</br>
+		&nbsp&nbsp		print(f"{self.name} can catch cat")</br></br>
+
+		# 定義寵物種類為貓</br>
+		class Cat(Pet):</br></br>
+
+			# 貓類寵物有抓鼠技能</br>
+		&nbsp	def catch_mouse(self):</br>
+		&nbsp&nbsp		print(f"{self.name} can catch mouse")</br></br>
+
+		snoopy = Dog("Snoopy")</br>
+		snoopy.eat() </br>
+		snoopy.catch_cat()</br></br>
+
+		garfield = Cat("Garfield")</br>
+		garfield.eat()</br>
+		garfield.catch_mouse()</br>
+	</div>
+	<div class="step">多重繼承 </div>
+	<div>同時繼承多過一個父類別，就像是同是繼承父親的基因，也繼承母親的基因。</div>
+	<img src="D:\pratice\mywebsite\img\inherit1.jpg"></img>
+	<div class="step">多層繼承</div>
+	<div>子類別有父類別，父類別也有父類別，祖父的概念。子類別同樣可以得到祖父層的屬性與方法。</div>
+	<img src="D:\pratice\mywebsite\img\inherit2.jpg"></img>
+	<div class="goal">多型 Polymorphism</div>
+	<div>是指子類別繼承父類別的方法，但可能會有不一樣的處理方式。</div>
+	<img src="D:\pratice\mywebsite\img\polymorphism.jpg"></img>
+	<div>
+		Python 有內建的套件 abc (abstract based class) ，有一個裝飾器 @abstractmethod，用來標記 class 中的 method 為抽象方法，</br>
+		用處是父親沒有實際定義方法的內容，但其子類別必須定義該方法的實作內容，否則會噴錯，藉此來規範子類別需要實作的內容。
+	</div>
+	<div class="plan">
+		# 需 import abc 套件</br>
+		from abc import abstractmethod, ABC</br></br>
+
+		# Pet 需要繼承 ABC class 才能應用 @abstractmethod</br>
+		class Pet(ABC):</br></br>
+
+		# 標記為 abstractmethod，裡面沒有實作內容，會寫 pass</br>
+		&nbsp	@abstractmethod</br>
+		&nbsp	def make_sound(self):</br>
+		&nbsp&nbsp		pass</br></br>
+
+		class Dog(Pet):</br>
+		&nbsp	def make_sound(self):</br>
+		&nbsp&nbsp&nbsp&nbsp		print("Woof!")</br></br>
+
+		class Cat(Pet):</br>
+		&nbsp	# 沒有實作 make_sound() 的內容</br>
+		&nbsp&nbsp	def catch_mouse(self):</br>
+		&nbsp&nbsp&nbsp		print("I can catch mouse")</br></br>
+
+		snoopy = Dog()</br>
+		snoopy.make_sound()</br></br>
+
+		# 在 init 的時候就會因為沒有實作 make_sound() 而噴錯</br>
+		garfield = Cat()
+	</div>
+	<div class="title2"> SQL Selection</div>
+	<ul>
+		<li>SELECT:SELECT column1, column2, ... FROM table；</li>
+		<li>WHERE:用作定義條件來選擇資料作 CRUD</li>
+		<li>AND / OR:應用在 WHERE 之後，使可以定義多個條件</li>
+		<li>IN:應用在 WHERE 之後，用來篩選出滿足指定條件的資料，可避免使用太多的 OR</li>
+		<li>
+			LIKE:作模糊匹配字符串的查詢
+			<ol>
+				<li>%：表示任意字符。</li>
+				<li>_：表示任意單個字符。</li>
+			</ol>
+		</li>
+		<li>ORDER BY:處理取得資料的排序方式，會放在 SQL 的最後。</br>
+			後面加上 DESC 是指以降序排序，需要個別 Column 標記</li>
+		<li>LIMIT:限制取得資料的數量</li>
+		<li>OFFSET:放在 LIMIT 之後，用來忽略多少筆的資料。</br>
+			比較常用作取 分頁 (Pagination) 資料</br>
+			<img src="D:\pratice\mywebsite\img\page.jpg"></img>
+		</li>
+		<li>DISTINCT:用於從結果集中去除重覆的行，使得每一行的值都是唯一的</li>
+	</ul>
+	<div class="title2">提高 SQL Selection 效能</div>
+	<ol>
+		<li>應用套有 Index 的欄位作條件查詢</br>
+			哪些欄位會套用 Index，需要問 Developer 甚至是 DBA (Database Administrator)。
+		</li>
+		<li>只搜尋所需的欄位，避免用全選 SELECT * 的語法</li>
+		<li>WHERE 多於一個條件的時候，先放有 Index 且資料性重覆性不高的欄位在前面，因為會按條件的排序作搜尋。</li>
+		<li>盡量使用 Search Argument (搜尋參數)（I.e. where id = 1)</br>
+			若使用模糊查詢 (I.e. LIKE, <>)，不明確的條件會讓 Index 會失效
+		</li>
+		<li>不要在條件加入運算步驟</li>
+	</ol>
+	<div class="title">Table Relationship</div>
+	<div class="title2">Primary Key 與 Foreign Key</div>
+	<div class="goal">Primary Key</div>
+	<div>作為 唯一標識 (Unique Identity) 每條記錄，就像是身份證號碼，會員編號，產品編號等代表的資訊。<div>
+	<ul>
+		<li>每個 Table 只會有一個 Primary Key</li>
+		<li>是唯一值 （可以是沿用已有資料 ／ 創建一個流水號 ID )</li>
+		<li>不能為空值 (NOT NULL)</li>
+	</ul>
+	<div class="goal">Foreign Key</div>
+	<div>表內的一個欄位，它會對應到另一個表的 Primary Key</div>
+	<ul>
+		<li>擁有 Foreign Key 的 Table，稱為 Child Table.</li>
+		<li>擁有對應的 Primary Key 的 Table，視為 Parent Table.</li>
+		<li>為了 避免一個 Table 有太多重覆性的資料 會拆成多個 Table，以 Foreign Key 作關連</li>
+		<li>Foreign Key 的資料一定要可以對應到 Parent Table 的 Primary Key，所以可以 約束錯誤的資料存在於 Foreign Key 欄位</li>
+	</ul>
+	<div class="title2">SQL Joins</div>
+	<br>
+	<div>將兩個或多個表格中相關的數據進行結合的操作。</div>
+	<div class="goal">LEFT JOIN</div>
+	<span style="font-size:15px; color:red;">LEFT JOIN B table ON A table column = B table column</span>
+	<br>
+	<br>
+	<div>
+		SELECT Customers.CustomerName, Orders.OrderDate</br>
+		FROM Customers</br>
+		LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;</br>
+	</div>
+	<div class="goal">RIGHT JOIN</div>
+	<div>以 A 表為主，一定會返回 A 表中所有的資料，而 B 表若有能匹配的資料會被一同被返回。</div>
+	<span style="font-size:15px; color:red;">RIGHT JOIN B table ON A table column = B table column</span>
+	<div class="goal">INNER JOIN</div>
+	<div>僅返回同時滿足 A 表和 B 表條件的記錄，用於查詢有關聯性的數據。</div>
+	<span style="font-size:15px; color:red;">INNER JOIN B table ON A table column = B table column</span>
+	<div class="title">SQL Database - ER Diagram (Entity Relationships Diagram)</div>
+	<div>數據庫設計中常用的圖形化表示方法，幫助設計師和開發人員理解和規劃數據庫結構。</div>
+	<div class="title2">Entity Relationships</div>
+	<div class="goal">Cardinality</div>
+	<div>確保數據庫的正確性和一致性。</div>
+	<ol>
+		<li>一對一（One-to-One）：一個學生只有一份學生資料</li>
+		<li>一對多（One-to-Many）：客戶可以有多張訂單</li>
+		<li>多對一（Many-to-One）</li>
+		<li>多對多（Many-to-Many）:學生可以註冊多個課程，而課程也有很多學生</li>
+	</ol>
+	<div class="goal">Optionality </div>
+	<ol>
+		<li>強制性參與（Mandatory Participation）：表示一個表格的記錄在關聯中必須有相應的匹配記錄，不能是空的。</li>
+		<li>非強制性參與（Optional Participation）：表格的記錄在關聯中可以有相應的匹配記錄，也可以是空的，不需要有相對應的關聯記錄。</li>
+	</ol>
+	<div class="title2">Entity Relationship Diagram (ERD)</div>
+	<img src="D:\pratice\mywebsite\img\edr.jpg"></img>
+	<br>
+	<div class="title">應用 Python 存取 DB 內容</div>
+	<div class="title2">pymysql 套件</div>
+	<br>
+	<div>pymysql 是 MySQL 數據庫連接 的套件，它提供了直接的接口來與 MySQL 數據庫進行交互，可以執行 SQL 查詢、插入、更新等操作，並處理數據庫的連接和交互。</div>
+	<span style="font-size:15px; color:red;">*缺點：Pandas 套件不支援，沒法搭配 Pandas 使用。</span>
+	<ol>
+		<li>先在 MySQL 建立一個 User Table</li>
+		<li>建立一個 Python 檔，import pymysql</li>
+		<li>設定基本資料(包含user,password,host,"port":3306)</li>
+		<li>選擇適當的 read timeout,可以從 5 秒到 30 秒之間進行調整，然後根據測試和實際使用情況進行微調。</li>
+	</ol>
+	<img src="D:\pratice\mywebsite\img\mysqlconnect.jpg"></img>
+	<span style="font-size:15px; color:red;">*避免用 index 去取值，應用明確的 Key 取值會大幅提高可讀性與維護性。row[0], row[1], row[2]可改為id, email 和 pw </span>
+	
+	<div class="title2">應用 DictCursor</div>
+	<div>
+		原本的 Cursor 會預設使用 Cursor，取得的資料會是 Tuple List 的格式，只能應用 index 取對應 Column 的值。</br>
+		因此需要改 Cursor 為 DictCursor，會產出 Dictionary List 的格式，可以在 db_settings 時設定
+	</div>
+	<img src="D:\pratice\mywebsite\img\dictcursor.jpg"></img>
+	
+	<div class="title2">sqlalchemy 套件</div>
+	<div>sqlalchemy 則是一個全功能的數據庫工具包，提供了 ORM (Object Relation Mapping) 功能以及更高級的數據庫操作方法。它不僅可以用於 MySQL，還支援多種數據庫系統。</div>
+	<img src="D:\pratice\mywebsite\img\sqlachemy.jpg"></img>
+	<br>
+	<span style="font-size:15px; color:red;">*ORM (Object Relational Mapping) 是透過操作物件的方式來操作資料庫，以提升開發效率和程式碼可讀性。</span>
+	
+	<div class="title">HTML</div>
+	<div class="title2">常見的 Tag 和跟它們相關的 attribute</div>
+	<ul>
+		<li>h1 表示一個主標題</li>
+		<li>p 表示一個段落</li>
+		<li>img src="image.jpg" alt="Image" 表示一個圖像， src 存圖片的來源位置， alt 則是用於提供圖像的替代文本</li>
+		<li>a href="http://google.com" 為超連結元素</li>
+		<li>input表單元素的核心部分用於創建各種不同類型的輸入欄位</li>
+	</ul>
+	<div class="goal"> attribute: ID, Name, Class</div>
+	<ol>
+		<li>
+			id 屬性：
+			<ul>
+				<li>每個 Element 在一個 HTML 文件中應該具有唯一的 id。</li>
+				<li>常用於 JavaScript 操作，使用 document.getElementById() 可透過 id 值來找到特定的元素，然後對其進行操作或修改。</li>
+			</ul>
+		</li>
+		<li>
+			name 屬性：
+			<ul>
+				<li>name 屬性用於為 HTML 表單元素（如 input、textarea 等）指定名稱</li>
+				<li>在提交表單時，表單元素的 name 值會成為 HTTP 請求中的參數名，用於將數據發送到伺服器。</li>
+			</ul>
+		</li>
+		<li>
+			class 屬性：
+			<ul>
+				<li>在 CSS 中，使用 .classname 可選擇所有含特定 class 的元素。</li>
+				<li>在 JavaScript 中，使用 document.querySelectorAll(".classname") 可選擇所有含特定 class 的元素。</li>
+			</ul>
+		</li>
+	</ol>
+	
+	<div class="title">Selenium </div>
+	<div></div>
+</body>
+</html>

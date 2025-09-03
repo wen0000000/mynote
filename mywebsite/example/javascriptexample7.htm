@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>選單開合</title>
+	<script type="text/javascript">
+	function toggleMenu(number){
+		var menu = document.getElementById("menu-"+ number);
+		menu.classList.toggle("hide");
+		/*if(menu.style.display == "none"){
+			menu.style.display = "block"; 
+		}else{
+			menu.style.display = "none";
+		}*/
+		
+	}
+	</script>
+	<style type="text/css">
+	.hide{display:none;}	
+	</style>
+	
+</head>
+<body >
+<div onclick = "toggleMenu(1);">選單一</div>
+<ul id="menu-1">
+	<li>第一項</li>
+	<li>第二項</li>
+	<li>第三項</li>
+</ul>
+<div onclick = "toggleMenu(2);">選單二</div>
+<ul id="menu-2">
+	<li>第一項</li>
+	<li>第二項</li>
+	<li>第三項</li>
+</ul>
+<div onclick = "toggleMenu(3);">選單三</div>
+<ul id="menu-3">
+	<li>第一項</li>
+	<li>第二項</li>
+	<li>第三項</li>
+</ul>
+</body>
+</html>

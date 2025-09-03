@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>RWD/FLEXBOX筆記</title>
+	<style type="text/css">
+	.head{
+		background-color:#aaaaaa;font-size:30px;font-weight:bold;color:#ffffff;
+	}
+	.title{
+		font-size:25px;font-weight:bold;
+	}
+	.goal{
+		font-size:20px;color:#8c0044;
+	}
+	.step{
+		font-size:18px;
+	}
+	.plan{
+		color:#008844;
+		margin:10px;
+	}
+	</style>
+</head>
+<body style="margin:0px;">
+	<div class="head">RWD/FLEXBOX筆記</div>
+	<br>
+	<div class="title">RWD</div>
+	<div class="goal">目的:將電腦橫的顯示，改成手機的顯示</div>
+	<div class="step">步驟</div>
+	<ul>
+		<li>先在head中加上meta name="viewport" content="device-width, initial-scale=1, maximum-scale=1" /(固定縮放)</li>
+		<li>然後在style加上css的madia query，@media screen and  (max-width:600px){.content{width:100%;}}(.content表其父輩)</li>
+	</ul>
+	<span style="fontsize:15px;color:red;">*其他字形大小或置中等，皆加在media query中即可</span>
+	<br>
+	<span style="fontsize:15px;color:red;">*使用開發人員開發工具可察看手機版的狀況</span>
+	<br>
+	<br>
+	<div class="title">FLEXBOX</div>
+	<div class="goal">目的:讓容器中的項目可以並排(切欄)顯示，以及水平對齊和垂直對齊</div>
+	<div class="step">步驟</div>
+	
+	<ul>
+		<li>先將容器的style加上display:flex;項目加上flex:none;width:300px;margin:10px;(代表項目無法自動縮放)</li>
+		<li>在容器的style加上justify-content:center;(使內容置中)</li>
+	</ul>
+	<div class="title">CSS3 Flexbox 回應式設計 RWD 排版</div>
+	<div class="goal">目的:欄位變化</div>
+	<div class="step">範例: 4欄>2欄>1欄</div>
+	<div class="plan">規劃:</br>
+	1200px以上:4欄，固定尺寸</br>
+	500px-1200px:2欄，彈性尺寸</br>
+	500px以下:1欄，彈性尺寸
+	</div>
+	<div class="step">步驟:</div>
+	<ul>
+		<li>將style加上@media (max-width:1200px){
+		main>.item{
+			width:45%;
+		}
+		}(留下一些margin的空間)
+		</li>
+		<li>在容器的style加上flex-wrap:wrap;(使容器中的項目換行)</li>
+		<li>然後在style加上@media (max-width:500px){
+		main>.item{
+			width:90%;
+			}
+		}
+		</li>
+	</ul>	
+	<span style="fontsize:15px;color:red;">*須按照順序，否則須添加更多設定</span>
+	<div ><a href="D:\pratice\mywebsite\example\flexbox.example.htm">範例</a></div>
+</body>
+</html>

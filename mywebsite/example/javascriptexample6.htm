@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>HTML DOM</title>
+	<script type="text/javascript">
+	function change(){
+		var spanObj = window.document.getElementById("here");
+		spanObj.innerHTML = "Finish";
+		spanObj.style.color = red;
+	}
+	</script>
+	<style type="text/css">
+	<style type="text/css">
+	html{
+            height: 100%;
+        }
+
+    body{
+            background-image: url("https://images.unsplash.com/photo-1497005367839-6e852de72767?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+            background-size: cover;
+			opacity: 0.8;
+        }
+	.btn{
+		position: relative;
+		border: 5px ;
+		width: 300px;
+        height: 200px;
+        top: 40px;
+        left: 950px;
+	}
+		
+	</style>
+	
+</head>
+<body class="backgroundImage">
+	<div style="font-size:100px;padding-top:325px;padding-left:800px;"><span id="here"> here</span></div>
+	<div class="btn">
+		<button padding-top:325px; padding-left:800px; onclick="change();">Change</button>
+	</div>
+</body>
+</html>

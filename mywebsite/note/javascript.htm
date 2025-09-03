@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>Javascript筆記</title>
+	<style type = "text/css">
+	.head{
+		background-color:#aaaaaa;font-size:30px;font-weight:bold;color:#ffffff;
+	}
+	.title{
+		font-size:25px;font-weight:bold;
+	}
+	.title1{
+		font-size:25px;color:orange;
+	}
+	.title2{
+		font-size:25px;color:#0088ab;
+	}
+	.goal{
+		font-size:20px;color:#8c0044;
+	}
+	.step{
+		font-size:18px;
+	}
+	.plan{
+		color:#008844;
+		margin:10px;
+	}
+	.plan1{
+		margin:10px;
+	}
+	.ans{
+		font-size:20px;color:#0000cc;
+	}
+	.example{
+		background-color:#cceeff;
+		padding:10px;
+	}
+	img {
+		display: block;
+		margin: 0 auto;
+		width:700px;
+	}
+	</style>
+</head>
+<body style="margin:0px;">
+	<div class="head">Javascript筆記</div>
+	<br>
+	<div class="title">如何在網頁中加入Javascript?</div>
+	<div class="ans">在head中加入script type="text/javascript"，將指令加入script中即可</div>
+	<br>
+	<div class="title1">註解</div>
+	<br>
+	<div>單行註解: //</div>
+	<div>多行註解:/* */</div>
+	<hr>
+	<div class="title1">資料</div>
+	<div>
+		11;</br>
+		5.11;</br>
+		"這是string";</br>
+		true;</br>
+		false;
+	</div>
+	<hr>
+	<div class="title1">變數</div>
+	<div>var x;</div>
+	<div>x = 22;</div>
+	<div>alert(x);</div>
+	<br>
+	<span style="fontsize:15px;color:red;">*一個變數只能放一筆資料，若寫入新的，則會將原本的值覆蓋</span>
+	<br>
+	<span style="fontsize:15px;color:red;">*var也可直接先賦值</span>
+	<hr>
+	<div class="title1">算數運算符</div>
+	<ul>
+		<li>+</li>
+		<li>-</li>
+		<li>*</li>
+		<li>/</li>
+		<li>%      #取餘數</li>
+		<li>++     #自增</li>
+		<li>--     #自減</li>
+	</ul>
+	<div class="title1">賦值運算符</div>
+	<ul>
+		<li>+=</li>
+		<li>-=</li>
+		<li>*=</li>
+		<li>/=</li>
+		<li>%=</li>
+		<li>=</li>
+	</ul>
+	<div class="title1">比較運算符</div>
+	<ul>
+		<li>==</li>
+		<li>===  #絕對等於(值和類型皆相等)</li>
+		<li>></li>
+		<li><</li>
+		<li>>=</li>
+		<li><=</li>
+		<li>!=</li>
+		<li>!==  #嚴格不等於(值或類型不相等)</li>
+	</ul>
+	<div class="title1">邏輯運算符</div>
+	<ul>
+		<li>&&</li>
+		<li>|| #絕對等於(值和類型皆相等)</li>
+		<li>!</li>
+	</ul>
+	<div class="example">
+		範例:</br>
+		輸入 prompt(提示語,預設值)-> 程式運算 -> 輸出: alert(資料)</br>
+		<a href="file:///D:/pratice/mywebsite/example/multiply.htm">兩數相乘</a>
+	</div>
+	<div class="title2">流程控制</div>
+	<div class="title1">判斷式</div>
+	<ul>
+		<li>if(判斷){</br> 正確的執行內容</br>}</li>
+		<li>if(判斷){</br></br>}else(){</br></br>}</li>
+		<li>if(判斷){</br></br>}else if(){</br></br>}else(){</br></br>}</li>
+	</ul>
+	<div class="example">
+		範例:</br>
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample2.htm">四則運算</a>
+	</div>
+	<div class="title1">迴圈</div>
+	<ul>
+		<li>while(判斷){</br> 若正確，執行大括號中的程式碼，執行完回到上方的while，直到錯誤跳出迴圈</br>}</li>
+		<li>for(初始區塊;判斷;迴圈區塊){</br></br>}</li>
+	</ul>
+	<span style="fontsize:15px;color:red;">*break; #強制跳出迴圈</span>
+	<br>
+	<span style="fontsize:15px;color:red;">*continue; #強制進行下一次迴圈</span>
+	<hr>
+	<div class="title1">函式</div>
+	<div class="goal">目的:包裝重複的程式碼，需要更改的部分使用參數即可</div>
+	<div class="step">步驟:</div>
+	<div class="plan">設計階段</div>
+	<div class="plan1">function  test(n1,n2){</br> &nbsp alert(n1 + n2);</br>return n1+n2;</br>}</div>
+	<span style="fontsize:15px;color:red;">*return 回傳到呼叫的地方，使其可做外部運算</span>
+	<div class="plan">呼叫</div>
+	<div class="plan1">var &nbsp result = test(2,5)*test(23,6);</div>
+	<div class="plan1">alert(result);</div>
+	<span style="fontsize:15px;color:red;">*函式的另一種寫法</span>
+	<div>var test = function(n1,n2){</br> &nbsp alert (n1+n2);</br>};</div>
+	<span style="fontsize:15px;color:red;">*函式內的呼叫先找函式內部(區域變數)，再找函式外部(全域變數)</span>
+	<span style="fontsize:15px;color:red;">*外部的程式碼不能使用內部的變數</span>
+	<div class="example">
+		範例:</br>
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample3.htm">函式使用</a>
+	</div>
+	<div class="title2">物件</div>
+	<div class="title1">物件設計</div>
+	<div class="step">步驟:</div>
+	<div class="plan">建立空白物件</div>
+	<div class="plan1">var point = new Object();</div>
+	<div class="plan">建立物件的成員(屬性與方法)</div>
+	<div class="plan1">point.x = 2; #屬性</div>
+	<div class="plan1">point.y = 5; #屬性</div>
+	<div class="plan1">point.getPosition = function(){</br> &nbsp alert(this.x + ","+ this.y);</br>};  #方法</div>
+	<div class="plan">使用物件</div>
+	<div class="plan1">alert(point.x);</div>
+	<div class="plan1">point.getPosition();</div>
+	<div class="example">
+		範例:</br>
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample4.htm">物件使用</a>
+	</div>
+	<div class="title1">建構子</div>
+	<div class="goal">目的:未來要產生相似的物件時，比較輕鬆</div>
+	<div class="plan1">function Player(name, hp){</br>
+		&nbsp player.name = name;</br>
+		&nbsp player.hp = hp;</br>
+		&nbsp player.fight = function(){</br>
+		&nbsp&nbsp this.hp = this.hp-2;</br>
+		&nbsp };</br>
+		&nbsp player.rest = function(){</br>
+		&nbsp&nbsp this.hp++;</br>
+		&nbsp };</br>
+		&nbsp player.report = function(){</br>
+		&nbsp alert(this.name+":" + this.hp );</br>
+		&nbsp };</br>
+		};
+	</div>
+	<div class="plan1">var player = new Player("Lara",100);</div>
+	<div class="plan1">var player2 = new Player("Wendy",80);</div>
+	<hr>
+	<div class="title2">HTML DOM</div>
+	<img src="D:\pratice\mywebsite\img\htmldom.jpg" ></img>
+	<br>
+	<div class="example">
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample5.htm">顯示螢幕解析度</a></br>
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample6.htm">按鈕</a></br>
+		<a href="ffile:///D:/pratice/mywebsite/example/javascriptexample7.htm">選單開合</a>
+	</div>
+	<span style="fontsize:15px;color:red;">*javascript如果要使用css,需使用駝峰式</span>
+	<hr>
+	<div class="title1">事件處理</div>
+	<ul>
+		<li>onclick</li>
+		<li>onmouseover = "over(this);"</li>
+		<li>onmouseout = "out(this);"</li>
+	</ul>
+	<div class="plan1">在script中加上function over(element){element.style.color:"red";}和function out(element){element.style.color:"gray";}</div>
+	<div class="example">
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample8.htm">動態註冊事件處理器與取得滑鼠座標位置與鍵盤事件</a></br>
+	</div>
+	<div class="title1">事件物件</div>
+	<ol>
+		<li>使用者點擊按鈕，觸發click事件。</li>
+		<li>瀏覽器主動收集和事件有關的資訊，並製造出Event Object事件物件。</li>
+		<li>呼叫已註冊的事件處理器(事件處理函式)</li>
+	</ol>
+	<hr>
+	<div class="title1">自動排程</div>
+	<div class="step">步驟:</div>
+	<div class="plan">設定1秒後會執行的函式</div>
+	<div class="plan1">使用window.setTimeout(countdown,1000);或window.setInterval(countdown,1000);</div>
+	<div class="plan">設定跳轉頁面</div>
+	<div class="plan1">寫countdown的function,利用if設定數到0跳轉頁面，並使用document.location設定跳轉頁面</div>
+	<span style="fontsize:15px;color:red;">*Interval和Timeout差別在於Interval會不斷執行，Timeout只會執行一次</span>
+	<div class="example">
+		<a href="file:///D:/pratice/mywebsite/example/javascriptexample9.htm">自動排程</a></br>
+	</div>
+	<div class="title2">Ajax</div>
+	<div class="goal">原理: 內容沒有放在網頁裡，是需要時才和伺服器要求，用javascript和伺服器連線，用javascript取代輸入網址得到網頁的工作</div>
+	<div class="step">步驟:</div>
+	<div class="plan">先在需要加上內容的地方加上div並設定id，接著用onclick = "getdata('pageName');"，之後將function加上XMLHttpRequest(物件專門用來和伺服器做連線)</div>
+	<span style="fontsize:15px;color:red;">&nbsp *open只是設定，連線還未送出</span>
+	<div class="plan1">var req = new XMLHttpRequest();</div>
+	<div class="plan1">req.open ("連線方法get","網址"+ pageName);</div>
+	<div class="plan1">req.onload = function(){</br>&nbsp var content = document.getElementById("content");</br>&nbsp content.innerHTML = this.reponseText;</br>};</div>
+	<div class="plan">送出連線</div>
+	<div class="plan1">req.send();</div>
+	<span style="fontsize:15px;color:red;">&nbsp *如果希望載入網頁時就出現內容，可以在body加上onload = "getdata('pageName');"</span>
+	<hr>
+	<div class="title2">Json(資料格式)</div>
+	<div class="goal">目的:javascript中輕鬆的表示物件</div>
+	<div class="plan">原本使用建構子創建新的物件</div>
+	<div class="plan1">var point = new Object();</div>
+	<div class="plan1">point.x = 3;</div>
+	<div class="plan1">point.y = 4;</div>
+	<div class="plan1">point.get = function(){</br>alert(this.x+ ","+ this.y);</br>};</div>
+	<div class="plan">使用Json</div>
+	<div class="plan1">var point = {"x":3, "y":4, "get":function(){</br>&nbsp  alert(this.x+ ","+ this.y);</br>&nbsp}</br>};</div>
+	<div class="plan1">point.get();</div>
+	<div class="plan">使用JSON.stringify(物件);將物件轉換成字串，但會忽略函式(方法)部分</div>
+	<div class="plan1">var jsonStr = JSON.stringify(point);</div>
+	<div class="plan1">console.log(jasonStr);</div>
+	<div class="plan">使用JSON.parse(JSON格式字串);將字串轉換成物件結構</div>
+	<div class="plan1">var plainObj = JSON.parse(jsonStr);</div>
+	<div class="plan1">console.log(plainObj);</div>
+	</hr>
+	<div class="title2">Hoisting 宣告提升</div>
+	<div class="goal">函式和變數的宣告會先被提升到程式的最上方</div>
+	<span style="fontsize:15px;color:red;">&nbsp *宣告提升不等於給定的資料提升</span>
+	<br>
+	<span style="fontsize:15px;color:red;">&nbsp *如果把函式當成資料裝進變數裡，只有變數會提升，造成錯誤</span>
+	<hr>
+	<div class="title2">影音撥放與控制 HTML5</div>
+	<div class="plan">在body中加上video src="" controls autoplay</div> 
+	<div class="title1">寫自己的控制介面</div> 
+	<div class="step">步驟:</div>
+	<div class="plan">先加上按鈕，並加上onclick</div>
+	<div class="plan1">&lt;button onclick = "playVideo();"&gt;play&lt;/button&gt;</div>
+	<div class="plan">把video的id設為全域變數，及完成playVideo的function</div>
+	<div class="plan1">var video;</br>
+	window.onload = function(){</br>
+	&nbsp video = document.getElementById("video");</br>
+	};</div>
+	<div class="plan1">function playVideo(){</br>
+	&nbsp video.play();</br>
+	};</div>
+	<div class="plan">暫停，將上述程式碼中的play改為pause</div>
+	<div class="plan">replay，需先將撥放時間改為0，再撥放</div>
+	<div class="plan1">function replayVideo(){</br>
+	&nbsp video.currentTime = 0;</br>
+	&nbsp video.play();</br>
+	};</div>
+	<div class="plan">進度條，先加入span並加上id</div>
+	<div class="plan1">&lt;span id="timer"&gt;&lt;/span&gt;</div>
+	<div class="plan">window.onload中加上事件處理</div>
+	<div class="plan1">addEventListener("timeupdate",updateTimer);</div>
+	<div class="plan1">function updateTimer(){</br>
+	&nbsp var timer = document.getElementById("timer");</br>
+	&nbsp timer.innerHTML = video.currentTime+"/"+video.duration</br>
+	}</div>
+</html>

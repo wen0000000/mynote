@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>CSS </title>
+	<style type="text/css">
+	.title{font-weight:bold;font-size:30px}
+	.title1{font-weight:none;font-size:20px;color:#00aaaa;}
+	.title2{font-weight:none;font-size:16px;color:#003c9d;}
+	.title3{font-weight:none;font-size:20px;color:#68348c;}
+	.orange{color:#EE7700;margin-top:5px;margin-left:10px;}
+	.blue{color:blue;margin-left:10px;}
+	.box{padding:3px;border:1px solid red}
+	.border{height:100px;width:200px;padding:3px;border:1px solid red}
+	.boxex{position:absolute;top:600px;left:600px;width:100px;height:50px;background-color:orange}
+	.cube>.top{
+		width:240px;
+		height:60px;
+		background-color:#8b9cdc;
+		transform:skew(-45deg,0deg) translate(30px,0px);
+	}
+	.cube>.center{
+		width:240px;
+		height:240px;
+		background-color:#2e4bb5;
+		display:inline-block;
+	}
+	.cube>.right{
+		width:60px;
+		height:240px;
+		background-color:#11297f;
+		display:inline-block;
+		transform:skew(0deg,-45deg) translate(0px,-30px);
+		
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload = function{
+			var cvs = document.getElementById("cvs");
+			var ctx = cvs.getContext("2d");
+			var img = new Image();
+			img.src ="go203.png";
+			img.onLoad = function(){
+				this.drawImage(img,0,0, cvs.width, cvs.height);
+			};
+		};
+	</script>
+</head>
+<body>
+	<div class="title">CSS 筆記</div>
+	<ul>
+    		<li><a href="#1">CSS 選擇器</a></li>
+			<li><a href="#2">定位模式</a></li>
+    		<li><a href="#3">表格樣式</a></li>
+			<li><a href="#4">css3</a></li>
+		</ul>
+		<br>
+	設定文字為粗體:style="font-weigh:bold"
+	<br>
+	設定文字為大小:style="font-size:25px"
+	<br>
+	改變文字顏色:先使用div包裹文字，加上style="color:red"
+	<br>
+	(color 後的參數無論是顏色或是色碼，甚至是RGB 色碼都可以)
+	<br>
+	ex:<div class="orange">橘色為#EE7700</div><div class="blue">藍色為blue</div>
+	</div>
+	<span style="color:red">*div會產生斷行，使用span可解決此情況
+	</span>
+	<br>
+	改變文字位置:style="margin-top(bottom/left/right):10px"
+	
+	改變區塊邊框寬度/樣式/顏色:style="border:1px solid red"
+	
+	改變文字與邊框位置:padding:3px
+	以下為邊框樣式:
+	<div class="box">
+	solid 實線
+
+	dashed 虛線
+
+	dotted 點線
+
+	double 雙線
+
+	groove 凹槽效果
+
+	ridge 突起效果
+
+	none 無邊框
+	</div>
+	<div>改變標籤寬度:style="width:200px"
+	<div>改變標籤高度:style="height:100px"
+	<br>
+	<div class="border">
+	12345
+	</div>
+	<br>
+
+	<h2 id="1">
+	CSS 選擇器
+	</h2>
+	<span style="color:green">
+	目的:方便CSS集中管理，使可讀性提升，CSS設定可重複利用
+	</span>
+	<br>
+	先將style type="text/css"置於head中，使用{}將個別設定包裹，並命名於{}前方(名字前須包含.)，接著將個別有設定的box，在其div加入class="名字"
+	<br>
+	<div class="title1">
+	標籤選擇器
+	</div>
+	ex:body{
+	font-size:16px; font-family:"微軟正黑體"
+	}
+	<div class="title1">
+	class選擇器
+	</div>
+	ex:div.content{
+	padding:10px;border:1px dashed:#888888;
+	}
+	<div class="title1">
+	id選擇器
+	</div>
+	ex:#btn{
+	border:1px solid #888888;
+	background-color:#ffffff;padding:5px;
+	}
+	<div class="title1">
+	虛擬選擇器:搭配其他選擇器使用
+	</div>
+	ex:#btn:hover{
+	background-color:#88888888;	}
+	<div class="title1">
+	階層選擇器:搭配其他選擇器使用
+	</div>
+	ex:.favorite a{
+	color:#0000ff;
+	}
+	<h2 id="2">
+	定位模式
+	</h2>
+	<div class="title1">
+	絕對定位
+	</div>
+	position:absolute;top:0px;left:0px;
+	<br>
+	可放在任一地方，不會影響版面
+	<div class="title1">
+	相對定位
+	</div>
+	position:relative;top:0px;left:0px;
+	以原始基準點做位移，比較常見於小範圍位移(上標 ex:<span style=position:relative;top:-5px>2</span>)
+	<br>
+	<h2 id="3">
+	表格樣式
+	</h2>
+	<div class="title1">
+	表格外層:
+	</div>
+	table{
+	width:100px;border:1px solid color:#888888;
+	}
+	<div class="title1">
+	表格內部:
+	</div>
+	td{
+	border:1px solid color:#888888;padding:10px;
+	}
+	<br>
+	<div class="title2">
+	表格中的第一對tr:
+	</div>
+	tr:nth-child(1){
+	background-color:#7788aa;color:#ffffff;
+	}
+	<div class="title2">
+	表格中的偶數對tr:
+	</div>
+	tr:nth-child(even){
+	background-color:#e8e8e8;
+	}
+	<div class="title2">
+	表格中的的邊線調整成剩一個:
+	</div>
+	table{
+	border-collapse:collapse;
+	}
+	<h2 id="4">
+	CSS 3 
+	</h2>
+	<span style="color:red">
+	*會有瀏覽器支援度的問題(search:caniuse)
+	</span>
+	<div class="title3">
+	常用的設定
+	</div>
+	<ol>
+		<li>opacity:0-1;</li>
+		<li>border-radius:10px; (50%會變圓形);</li>
+		<li>box-shadow:0px 0px 5px #000000;&nbsp(x方向位移/y方向位移/陰影擴散/顏色)</li>
+		<li>text-shadow:0px 0px 5px #000000;&nbsp(x方向位移/y方向位移/陰影擴散/顏色)</li>
+	</ol>
+	<div class="title3">
+	線性轉換
+	</div>
+	<div class="title1">
+	位移
+	</div>
+	transform:translate(100px,50px)
+	<div class="title1">
+	縮放
+	</div>
+	transform:scale(1,1.5)
+	<div class="title1">
+	旋轉
+	</div>
+	transform:routate(45deg)
+	<div class="title1">
+	歪斜
+	</div>
+	transform:skew(45deg,0deg)
+	<br>
+	<div style="display: flex;justify-content: center;">
+		<img src="D:\pratice\mywebsite\img\cube.jpg"></img>
+	</div>
+	<br>
+	outcome:
+	<div class="cube">
+		<div class="top"></div>
+		<div class="center"></div><div class="right"></div>
+	</div>
+	<div class="title3">canvas繪圖</div>
+	<ol>
+		<li>使用canvas，設定高度寬度與邊界，並設定id</li>
+		<li>var cvs = document.getElementById("cvs");</li>
+		<li>設定為2d，var ctx = cvs.getContext("2d");</li>	
+	</ol>
+	<div class="title1">填滿</div>
+	改變顏色fillStyle="blue"</br>
+	改變透明度globalAlpha=0.5</br>
+	設定方形的x和y座標與大小fiillReat(50,50,100,100)
+	<div class="title1">描邊</div>
+	描邊顏色改變strokeStyle = "orange"</br>
+	方形描邊strokeReac(200,200,50,50)
+	<div class="title1">路徑</div>
+	ctx.beginPath();</br>
+	cts.moveTo(100,100);  #移動到當前所在位置</br> 
+	ctx.lineTo(300,300);</br>
+	ctx.closePath();</br>
+	ctx.stroke();/ctx.fill();</br></br>
+	<div class="title1">影像處理</div>
+	<div class="title2">載入影像</div>
+	var img = new Image();</br>
+	img.src ="";</br>
+	img.onLoad = function(){</br>
+	&nbsp this.drawImage(img,0,0, cvs.width, cvs.height);</br>
+	};
+	<div class="title2">顏色反轉</div>
+	<div>
+	var pixels = ctx.getImageData(0, 0, cvs.width, cvs.height);</br>
+	var data = pixels.data; #一個像素佔據4 bytes(R, G, B, A)</br>
+	for(i=0; i&lt data.lengh; i+=4){ 
+	<br>
+	&nbsp data[i] = 255-data[i]; #R</br>
+	&nbsp data[i+1] = 255-data[i+1]; #G</br>
+	&nbsp data[i+2] = 255-data[i+2]; #B</br>
+	};</br>
+	最後將取得的資料放回畫布中</br>
+	cvs.putImageData(pixels, 0, 0);
+	</div>
+	<br>
+	<div class="title1">檔案輸入與輸出(javascript)</div>
+	<ul>
+		<li>在body中加上input type = "file" onChange = "loadFile(this);"/</li>
+		<li>在script中加上function loadFile(input){</br>
+		&nbsp var file = input.files[0];</br>
+		&nbsp var src = URL.creatObjectURL(file);</br>
+		&nbsp var img = new Image();</br>
+		&nbsp img.src = src;</br>
+		&nbsp img.onLoad = function(){</br>
+		&nbsp&nbsp ctx.drawImage(this, 0, 0, cvs.width, cvs.height)</br> 
+		&nbsp};</br>
+		 }</li>
+		<li>建立儲存檔案按鈕，並加上onclick = "saveFile();"</li>
+		<li>另外加上超連結並設立id download</li>
+		<li>在script中加上function saveFile(){</br>
+			&nbsp var link = document.getElementById("download");</br>
+			&nbsp link.download = "image.jpg";</br>
+			&nbsp link.href = cvs.toDataURL("image/jpeg");</br>
+			&nbsp link.click();</br>
+		};</li>
+	</ul>
+</html>

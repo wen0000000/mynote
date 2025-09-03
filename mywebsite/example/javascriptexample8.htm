@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<title>動態註冊事件處理器與取得滑鼠座標位置與鍵盤事件</title>
+<script type="text/javascript">
+function init(){
+	var btn = document.getElementById("btn");
+	/*btn.onclick = function(){
+		alert("clicked");
+	};*/
+	
+	var handler = function(e){ //準備一個事件處理器
+		alert("clicked");
+		alert(e.clientX+ ","+ e.clientY);
+	};
+	btn.addEventListener("click"/*事件的名稱*/,handler);
+	document.addEventListener("keydown",function(e){ //匿名函式
+		alert(e.keyCode);
+	});
+}
+</script>
+<style type="text/css">
+	
+	
+		
+</style>
+	
+</head>
+<body onload = "init();">
+	<button id="btn">click</button>
+	
+</body>
+</html>
