@@ -248,7 +248,7 @@
 	<br>
 	<div class="title"> Big O Notation</div>
 	<div>
-		<img src="D:\pratice\mywebsite\img\bigO.jpg"></img>
+		<img src="../img/bigO.jpg"></img>
 		<br>
 		圖片來源：
 		<a href="https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/"> https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/</a>
@@ -265,9 +265,9 @@
 	<div class="title2">Package</div>
 	<div class="goal"> 包含了多個 Module，作用是把 Module 分類存放，可以整個被匯入其他程式被應用。而這個資料夾必須含有 __init__.py 才會被視為 Package。</div>
 	<div>__init__.py 可以是空的檔案。這個檔案的程式碼會被 Import 時執行，所以可以加入 Import 時想要執行的內容，例如導入依賴套件。</div>
-	<img src="D:\pratice\mywebsite\img\螢幕擷取畫面 2025-08-21 093052.jpg"></img>
+	<img src="../img/螢幕擷取畫面 2025-08-21 093052.jpg"></img>
 	<br>
-	<img src="D:\pratice\mywebsite\img\螢幕擷取畫面 2025-08-21 093131.jpg"></img>
+	<img src="../img/螢幕擷取畫面 2025-08-21 093131.jpg"></img>
 	<br>
 	<div class="title2">第三方套件</div>
 	<div>比較常用的會是透過 pip安裝，安裝 Python 時就會自動包含 pip 了，在程式中應用時，只需要 import 即可使用。</div>
@@ -347,10 +347,10 @@
 			注意： 每個 key 的 list 數量必須一致，否則會出現錯誤。 因此若該欄位沒有資料時，需自行補上 nan 的值，可以填入 None 來生成 nan 值。</li>
 	</ol>
 	<div class="wrap">
-		<img src="D:\pratice\mywebsite\img\1.jpg"></img></br>
-		<img src="D:\pratice\mywebsite\img\2.jpg"></img></br>
-		<img src="D:\pratice\mywebsite\img\3.jpg"></img></br>
-		<img src="D:\pratice\mywebsite\img\4.jpg"></img></br>
+		<img src=../img/1.jpg"></img></br>
+		<img src="../img/2.jpg"></img></br>
+		<img src="../img/3.jpg"></img></br>
+		<img src="../img/4.jpg"></img></br>
 	</div>
 	<br>
 	<div class="goal">透過 Pandas 可以應用 DataFrame 生成 Excel File</div>
@@ -461,13 +461,13 @@
 	</div>
 	<div class="step">多重繼承 </div>
 	<div>同時繼承多過一個父類別，就像是同是繼承父親的基因，也繼承母親的基因。</div>
-	<img src="D:\pratice\mywebsite\img\inherit1.jpg"></img>
+	<img src=../img/inherit1.jpg"></img>
 	<div class="step">多層繼承</div>
 	<div>子類別有父類別，父類別也有父類別，祖父的概念。子類別同樣可以得到祖父層的屬性與方法。</div>
-	<img src="D:\pratice\mywebsite\img\inherit2.jpg"></img>
+	<img src=../img/inherit2.jpg"></img>
 	<div class="goal">多型 Polymorphism</div>
 	<div>是指子類別繼承父類別的方法，但可能會有不一樣的處理方式。</div>
-	<img src="D:\pratice\mywebsite\img\polymorphism.jpg"></img>
+	<img src="../img/polymorphism.jpg"></img>
 	<div>
 		Python 有內建的套件 abc (abstract based class) ，有一個裝飾器 @abstractmethod，用來標記 class 中的 method 為抽象方法，</br>
 		用處是父親沒有實際定義方法的內容，但其子類別必須定義該方法的實作內容，否則會噴錯，藉此來規範子類別需要實作的內容。
@@ -517,7 +517,7 @@
 		<li>LIMIT:限制取得資料的數量</li>
 		<li>OFFSET:放在 LIMIT 之後，用來忽略多少筆的資料。</br>
 			比較常用作取 分頁 (Pagination) 資料</br>
-			<img src="D:\pratice\mywebsite\img\page.jpg"></img>
+			<img src="../img/page.jpg"></img>
 		</li>
 		<li>DISTINCT:用於從結果集中去除重覆的行，使得每一行的值都是唯一的</li>
 	</ul>
@@ -585,7 +585,7 @@
 		<li>非強制性參與（Optional Participation）：表格的記錄在關聯中可以有相應的匹配記錄，也可以是空的，不需要有相對應的關聯記錄。</li>
 	</ol>
 	<div class="title2">Entity Relationship Diagram (ERD)</div>
-	<img src="D:\pratice\mywebsite\img\edr.jpg"></img>
+	<img src="../img/edr.jpg"></img>
 	<br>
 	<div class="title">應用 Python 存取 DB 內容</div>
 	<div class="title2">pymysql 套件</div>
@@ -598,7 +598,7 @@
 		<li>設定基本資料(包含user,password,host,"port":3306)</li>
 		<li>選擇適當的 read timeout,可以從 5 秒到 30 秒之間進行調整，然後根據測試和實際使用情況進行微調。</li>
 	</ol>
-	<img src="D:\pratice\mywebsite\img\mysqlconnect.jpg"></img>
+	<img src="../img/mysqlconnect.jpg"></img>
 	<span style="font-size:15px; color:red;">*避免用 index 去取值，應用明確的 Key 取值會大幅提高可讀性與維護性。row[0], row[1], row[2]可改為id, email 和 pw </span>
 	
 	<div class="title2">應用 DictCursor</div>
@@ -606,11 +606,11 @@
 		原本的 Cursor 會預設使用 Cursor，取得的資料會是 Tuple List 的格式，只能應用 index 取對應 Column 的值。</br>
 		因此需要改 Cursor 為 DictCursor，會產出 Dictionary List 的格式，可以在 db_settings 時設定
 	</div>
-	<img src="D:\pratice\mywebsite\img\dictcursor.jpg"></img>
+	<img src="../img/dictcursor.jpg"></img>
 	
 	<div class="title2">sqlalchemy 套件</div>
 	<div>sqlalchemy 則是一個全功能的數據庫工具包，提供了 ORM (Object Relation Mapping) 功能以及更高級的數據庫操作方法。它不僅可以用於 MySQL，還支援多種數據庫系統。</div>
-	<img src="D:\pratice\mywebsite\img\sqlachemy.jpg"></img>
+	<img src=../img/sqlachemy.jpg"></img>
 	<br>
 	<span style="font-size:15px; color:red;">*ORM (Object Relational Mapping) 是透過操作物件的方式來操作資料庫，以提升開發效率和程式碼可讀性。</span>
 	
@@ -651,4 +651,5 @@
 	<div class="title">Selenium </div>
 	<div></div>
 </body>
+
 </html>
