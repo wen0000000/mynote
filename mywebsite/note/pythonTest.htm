@@ -598,7 +598,7 @@
 		<li>設定基本資料(包含user,password,host,"port":3306)</li>
 		<li>選擇適當的 read timeout,可以從 5 秒到 30 秒之間進行調整，然後根據測試和實際使用情況進行微調。</li>
 	</ol>
-	<img src="../img/mysqlconnect.jpg"></img>
+	<img src="../img/mysqlconnect.jpg">
 	<span style="font-size:15px; color:red;">*避免用 index 去取值，應用明確的 Key 取值會大幅提高可讀性與維護性。row[0], row[1], row[2]可改為id, email 和 pw </span>
 	
 	<div class="title2">應用 DictCursor</div>
@@ -610,7 +610,7 @@
 	
 	<div class="title2">sqlalchemy 套件</div>
 	<div>sqlalchemy 則是一個全功能的數據庫工具包，提供了 ORM (Object Relation Mapping) 功能以及更高級的數據庫操作方法。它不僅可以用於 MySQL，還支援多種數據庫系統。</div>
-	<img src="../img/mysqlconnect.jpg"></img>
+	<img src="../img/sqlachemy.jpg"></img>
 	<br>
 	<span style="font-size:15px; color:red;">*ORM (Object Relational Mapping) 是透過操作物件的方式來操作資料庫，以提升開發效率和程式碼可讀性。</span>
 	
@@ -653,5 +653,6 @@
 </body>
 
 </html>
+
 
 
